@@ -3,6 +3,6 @@
     "maintainer": "mmccoyd",
     "keyboard_name": "Hillside 52",
     "url": "http://github.com/mmccoyd/hillside/",
-    "tags": ["split", "column stagger", "choc v1", "choc spaced"]
-    "pin_compatible": "elite_c"
+    "tags": ["split", "column stagger", "choc v1", "choc spaced"],
+    "development_board": "promicro"
 }
