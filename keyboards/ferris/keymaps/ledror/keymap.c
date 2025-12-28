@@ -20,8 +20,8 @@ enum layers {
 // #define TRI_LAYER_UPPER_LAYER _SYM
 // #define TRI_LAYER_ADJUST_LAYER _NUM
 
-#define LA_NAV TL_LOWR
-#define LA_SYM TL_UPPR
+#define LA_NAV MO(NAV)
+#define LA_SYM MO(SYM)
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -56,7 +56,7 @@ bool is_oneshot_cancel_key(uint16_t keycode) {
     switch (keycode) {
         case LA_SYM:
         case LA_NAV:
-            return true;
+            return IS_LAYER_ON(QWERTY);
         default:
             return false;
     }
@@ -146,4 +146,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
     update_oneshot(&os_cmd_state, KC_LCMD, OS_CMD, keycode, record);
 
     return true;
+}
+
+layer_state_t layer_state_set_user(layer_state_t state) {
+    return update_tri_layer_state(state, SYM, NAV, NUM);
 }
