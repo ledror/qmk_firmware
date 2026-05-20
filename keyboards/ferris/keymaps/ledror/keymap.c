@@ -136,8 +136,8 @@ void update_oneshot(oneshot_state* state, uint16_t mod, uint16_t trigger, uint16
 
 oneshot_state os_shft_state = os_up_unqueued;
 oneshot_state os_ctrl_state = os_up_unqueued;
-oneshot_state os_alt_state = os_up_unqueued;
-oneshot_state os_cmd_state = os_up_unqueued;
+oneshot_state os_alt_state  = os_up_unqueued;
+oneshot_state os_cmd_state  = os_up_unqueued;
 
 bool process_record_user(uint16_t keycode, keyrecord_t* record) {
     update_oneshot(&os_shft_state, KC_LSFT, OS_SHFT, keycode, record);
